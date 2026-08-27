@@ -26,6 +26,7 @@ const {
       <nav aria-label="主要导航">
         <a href="/">首页</a>
         <a href="/blog/helloworld/">文章</a>
+        <a href="/archive/">归档</a>
         <a href="https://github.com/HeeiYa">GitHub</a>
       </nav>
     </header>
@@ -118,6 +119,38 @@ const {
 
   .post-card strong { font-size: 1.25rem; }
   .post-card p { margin: 8px 0 0; color: #667064; }
+
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    margin-top: 10px;
+    color: #737970;
+    font-size: .85rem;
+  }
+
+  .archive-intro { max-width: 660px; }
+
+  .source-note {
+    margin: 32px 0;
+    padding: 16px 20px;
+    border-left: 3px solid #8a9d8e;
+    background: #eeede6;
+    color: #555b53;
+  }
+
+  article img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  article pre {
+    overflow-x: auto;
+    padding: 18px;
+    border-radius: 6px;
+    background: #20231f;
+    color: #f6f5ef;
+  }
 
   article { max-width: 680px; }
   article h1 { font-size: clamp(2.4rem, 8vw, 4.4rem); }

@@ -1,0 +1,31 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection('archive');
+  return posts.map((post) => ({ params: { id: post.id }, props: { post } }));
+}) satisfies GetStaticPaths;
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const date = post.data.publishedAt.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout title={`${post.data.title} — Archive`} description={post.data.description}>
+  <article lang="en">
+    <p class="eyebrow">Archive · KDE</p>
+    <h1>{post.data.title}</h1>
+    <p class="meta">Originally published on {date}</p>
+    <p class="source-note">
+      This article was migrated from my former KDE project blog.
+      <a href={post.data.sourceUrl}>View the original Markdown on GitHub.</a>
+    </p>
+    <Content />
+  </article>
+</BaseLayout>
