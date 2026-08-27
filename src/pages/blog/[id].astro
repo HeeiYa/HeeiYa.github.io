@@ -1,0 +1,27 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({ params: { id: post.id }, props: { post } }));
+}) satisfies GetStaticPaths;
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const date = post.data.publishedAt.toLocaleDateString('zh-CN', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout title={`${post.data.title} — Hanyang Zhang`} description={post.data.description}>
+  <article>
+    <p class="eyebrow">Writing</p>
+    <h1>{post.data.title}</h1>
+    <p class="meta">发布于 {date}</p>
+    <Content />
+  </article>
+</BaseLayout>

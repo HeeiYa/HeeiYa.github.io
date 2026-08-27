@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+---
+
+<BaseLayout title="Hanyang Zhang — Building games, tools and systems">
+  <p class="eyebrow">Independent Developer · Shanghai</p>
+  <h1>做游戏、工具，<br />以及有趣的系统。</h1>
+  <p class="lead">
+    这里是我的公开工作台。我会记录正在构建的项目、真实问题中的技术探索，以及阶段性的思考与复盘。
+  </p>
+
+  <h2>最近写作</h2>
+  {posts.map((post) => (
+    <a class="post-card" href={`/blog/${post.id}/`}>
+      <strong>{post.data.title}</strong>
+      <p>{post.data.description}</p>
+    </a>
+  ))}
+</BaseLayout>
