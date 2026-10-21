@@ -1,6 +1,6 @@
 ---
 title: 太空时代
-description: 关于一艘用胶带拼起来的破烂飞船，以及当想象力失去方向之后的思考。
+description: 关于一款游戏的诞生与徘徊
 publishedAt: 2026-10-21
 tags:
   - gamedev
