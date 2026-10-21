@@ -6,7 +6,6 @@ tags:
   - OSPP
   - KDE
   - QML
-sourceUrl: "https://github.com/HeeiYa/KDEBlog/blob/master/docs/posts/2024OSPP%20KDE%E9%A1%B9%E7%9B%AE%E4%B8%AD%E6%9C%9F%E6%80%BB%E7%BB%93.md"
 ---
 It has been three weeks since the start of the OSPP project, during which my project has made some progress.
 
@@ -37,7 +36,7 @@ The Tic-Tac-Toe game is openly developed on KDE Invent: [hanyang zhang / TicTacT
 Supporting localization for QML applications requires the use of Qt's localization tools such as lupdate and lrelease. However, since the project is built with CMake, Qt also provides corresponding CMake methods: [qt_add_translations | Qt Linguist Manual](https://doc.qt.io/qt-6/qtlinguist-cmake-qt-add-translations.html)
 
 Additionally, I encountered some difficulties while building QML Android applications, as described here: 
-[Building and Running QML Android Applications | Blog](/archive/building-running-qml-android-applications/)
+[Building and Running QML Android Applications | Blog](/blog/building-running-qml-android-applications/)
 
 
 
@@ -49,7 +48,7 @@ After studying Blinken's source code, I found that the interface of Blinken is d
 
 Unfortunately, QML does not provide built-in support for manipulating SVG images like QtWidgets. Therefore, I split the SVG images into separate files and assembled these elements using QML with Adobe Illustrator and Inkscape.
 
-!![Blinken interface draft](/archive/kde/blinken-draft.jpg)
+![Blinken interface draft](/images/kde/blinken-draft.jpg)
 
 Modifying the UI took longer than I anticipated. However, after a week, I have nearly completed the interface drawing for Blinken. Next steps involve refining some page details and migrating Blinken's logic over.
 

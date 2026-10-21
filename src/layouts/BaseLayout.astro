@@ -6,7 +6,7 @@ interface Props {
 
 const {
   title,
-  description = 'Hanyang Zhang 的个人主页与博客',
+  description = 'HeeiYa 的个人博客与项目归档',
 } = Astro.props;
 ---
 
@@ -22,18 +22,16 @@ const {
   </head>
   <body>
     <header>
-      <a class="brand" href="/">Hanyang Zhang</a>
+      <a class="brand" href="/">HeeiYa</a>
       <nav aria-label="主要导航">
-        <a href="/">首页</a>
-        <a href="/blog/helloworld/">文章</a>
-        <a href="/archive/">归档</a>
+        <a href="/#posts">Blog</a>
         <a href="https://github.com/HeeiYa">GitHub</a>
       </nav>
     </header>
     <main>
       <slot />
     </main>
-    <footer>© {new Date().getFullYear()} Hanyang Zhang</footer>
+    <footer>© {new Date().getFullYear()} HeeiYa</footer>
   </body>
 </html>
 
@@ -120,28 +118,17 @@ const {
   .post-card strong { font-size: 1.25rem; }
   .post-card p { margin: 8px 0 0; color: #667064; }
 
-  .post-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 16px;
-    margin-top: 10px;
-    color: #737970;
-    font-size: .85rem;
-  }
-
-  .archive-intro { max-width: 660px; }
-
-  .source-note {
-    margin: 32px 0;
-    padding: 16px 20px;
-    border-left: 3px solid #8a9d8e;
-    background: #eeede6;
-    color: #555b53;
-  }
-
   article img {
     max-width: 100%;
     height: auto;
+  }
+
+  article video {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 28px 0;
+    background: #111;
   }
 
   article pre {

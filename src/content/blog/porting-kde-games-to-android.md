@@ -6,7 +6,6 @@ tags:
   - OSPP
   - KDE
   - Android
-sourceUrl: "https://github.com/HeeiYa/KDEBlog/blob/master/docs/posts/2024OSPP%20KDE%E7%A4%BE%E5%8C%BA%E9%A1%B9%E7%9B%AE%EF%BC%9APorting%20KDE%20Games%20to%20Android%20platform.md"
 ---
 During the 2024 Open Source Promotion Plan (OSPP) event, I had the honor of being selected for the KDE community project: Porting KDE Games to the Android platform. This is KDE community's first participation in OSPP, and it is their first and only project.
 

@@ -7,7 +7,6 @@ tags:
   - KDE
   - QML
   - Android
-sourceUrl: "https://github.com/HeeiYa/KDEBlog/blob/master/docs/posts/2024OSPP%20KDE%E9%A1%B9%E7%9B%AE%E6%9C%AB%E6%9C%9F%E6%80%BB%E7%BB%93.md"
 ---
 It's been more than three weeks since the midterm summary, and the project is now nearing completion.
 

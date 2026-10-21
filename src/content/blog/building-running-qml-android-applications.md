@@ -6,7 +6,6 @@ tags:
   - Android
   - QML
   - Qt
-sourceUrl: "https://github.com/HeeiYa/KDEBlog/blob/master/docs/posts/QML%20%E5%AE%89%E5%8D%93%E5%BA%94%E7%94%A8%E6%9E%84%E5%BB%BA%E4%B8%8E%E8%BF%90%E8%A1%8C.md"
 ---
 ## Building QML Android Applications
 

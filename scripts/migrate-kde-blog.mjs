@@ -1,5 +1,5 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
-import { basename, resolve } from 'node:path';
+import { resolve } from 'node:path';
 
 const sourceRoot = process.argv[2];
 
@@ -42,9 +42,9 @@ const posts = [
   },
 ];
 
-const archiveRoot = resolve('src/content/archive');
-const assetRoot = resolve('public/archive/kde');
-await mkdir(archiveRoot, { recursive: true });
+const blogRoot = resolve('src/content/blog');
+const assetRoot = resolve('public/images/kde');
+await mkdir(blogRoot, { recursive: true });
 await mkdir(assetRoot, { recursive: true });
 
 for (const post of posts) {
@@ -58,14 +58,14 @@ for (const post of posts) {
   if (imageMatch) {
     await writeFile(resolve(assetRoot, 'blinken-draft.jpg'), Buffer.from(imageMatch[1], 'base64'));
     body = body
-      .replace('[Blinken Draft][BlinkenDraft]', '![Blinken interface draft](/archive/kde/blinken-draft.jpg)')
+      .replace('![Blinken Draft][BlinkenDraft]', '![Blinken interface draft](/images/kde/blinken-draft.jpg)')
       .replace(/\r?\n\[BlinkenDraft\]: data:image\/jpeg;base64,[^\r\n]+/, '');
   }
 
   body = body
     .replace(
       /https:\/\/heeiya\.github\.io\/KDEBlog\/posts\/QML%20[^)]+\.html#building-qml-android-applications/,
-      '/archive/building-running-qml-android-applications/',
+      '/blog/building-running-qml-android-applications/',
     )
     .replace(
       '[Qt Online Installer]((https://doc.qt.io/qt-6/get-and-install-qt.html#using-qt-maintenance-tool)',
@@ -75,7 +75,6 @@ for (const post of posts) {
     .replace(/\r\n/g, '\n')
     .trim();
 
-  const sourceUrl = `https://github.com/HeeiYa/KDEBlog/blob/master/docs/posts/${encodeURIComponent(basename(post.source))}`;
   const frontmatter = [
     '---',
     `title: ${JSON.stringify(post.title)}`,
@@ -83,12 +82,12 @@ for (const post of posts) {
     `publishedAt: ${post.publishedAt}`,
     'tags:',
     ...post.tags.map((tag) => `  - ${tag}`),
-    `sourceUrl: ${JSON.stringify(sourceUrl)}`,
+    'draft: false',
     '---',
     '',
   ].join('\n');
 
-  await writeFile(resolve(archiveRoot, `${post.slug}.md`), `${frontmatter}${body}\n`);
+  await writeFile(resolve(blogRoot, `${post.slug}.md`), `${frontmatter}${body}\n`);
 }
 
-console.log(`Migrated ${posts.length} English KDEBlog posts.`);
+console.log(`Migrated ${posts.length} English KDEBlog posts into the blog collection.`);
